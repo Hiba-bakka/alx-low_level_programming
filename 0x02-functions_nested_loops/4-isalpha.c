@@ -2,13 +2,13 @@
 
 /**
  * _isalpha - Checks for alphabetic  character
- * @n: The character to be checked
+ * @c: The character to be checked
  * Return: 1 for alphabetic  character or 0 for anything else
  */
 
-int _isalpha(int n)
+int _isalpha(int c)
 {
-if ((n >= 65 &&  n <= 90) || (n >= 97 && n <= 122))
+if ((c >= 65 &&  c <= 90) || (c >= 97 && c <= 122))
 {
 return (1);
 }
