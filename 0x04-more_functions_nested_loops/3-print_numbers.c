@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- *  prints number -print 0 - 9
- *  only use _putchar
+ * print_numbers - print 0 - 9
  *
  * Return: 1 (sucess)
  */
