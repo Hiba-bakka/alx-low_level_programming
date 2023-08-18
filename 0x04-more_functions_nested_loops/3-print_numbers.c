@@ -3,7 +3,6 @@
 /**
  *  prints number
  *
- *
  * Return: 1 (sucess)
  */
 
