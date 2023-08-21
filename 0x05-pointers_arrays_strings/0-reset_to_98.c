@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- * reset_to_98(int *n)
- * @n: argument
- * return always 0
- */
+* reset_to_98 - resets the memory address to 98
+* @n: argument
+* Return: always 0
+*/
 
-
-void updateValue(int *ptr)
+void reset_to_98(int *n)
 {
-	*ptr = 98;
+	*n = 98;
 }
