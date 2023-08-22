@@ -25,21 +25,23 @@ int _atoi(char *s)
 	/* Loop through the string until a digit is found or the end is reached. */
 	while (i < len && f == 0)
 	{
-		if (s[i] == '-')   /* If a minus sign is encountered. */
-			++d;           /* Increment the minus sign counter. */
+		if (s[i] == '-') 
+			++d;           
 
-		if (s[i] >= '0' && s[i] <= '9')  /* If the character is a digit. */
+		if (s[i] >= '0' && s[i] <= '9')  
 		{
-			digit = s[i] - '0';          /* Convert the character to integer. */
-			if (d % 2)       /* If there are an odd number of minus signs. */
-				digit = -digit;          /* Make the digit negative. */
-			n = n * 10 + digit;          /* Update the converted integer. */
-			f = 1;  
+			digit = s[i] - '0';          
+			if (d % 2)       
+				digit = -digit;          
+			n = n * 10 + digit;          
+			f = 1;   
+
+			
 			if (s[i + 1] < '0' || s[i + 1] > '9')
 				break;
-			f = 0;                       /* Reset the flag for the next iteration. */
+			f = 0;                      
 		}
-		i++;                             /* Move to the next character. */
+		i++;                        
 	}
 
 	/* If no digit was found, return 0. */
