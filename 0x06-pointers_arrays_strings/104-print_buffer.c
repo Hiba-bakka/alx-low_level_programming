@@ -1,59 +1,45 @@
-#include "main.h"
 #include <stdio.h>
-/**
- * print_line - prints a s bytes of a buffer
- * @c: buffer to print
- * @s: bytes of buffer to print
- * @l: line of buffer to print
- *
- * Return: void
- */
+#include <ctype.h>
 
-void print_line(char *c, int s, int l)
-{
-	int j, k;
+void print_buffer(char *b, int size) {
+    if (size <= 0) {
+        printf("\n");
+        return;
+    }
 
-	for (j = 0; j <= 9; j++)
-	{
-		if (j <= s)
-			printf("%02x", c[l * 10 + j]);
-		else
-			printf("  ");
-		if (j % 2)
-			putchar(' ');
-	}
-	for (k = 0; k <= s; k++)
-	{
-		if (c[l * 10 + k] > 31 && c[l * 10 + k] < 127)
-			putchar(c[l * 10 + k]);
-		else
-			putchar('.');
-	}
+    int i, j;
+    for (i = 0; i < size; i += 10) {
+        // Print line position in hexadecimal
+        printf("%08x ", i);
+
+        // Print hexadecimal content and corresponding characters
+        for (j = 0; j < 10; j += 2) {
+            if (i + j < size) {
+                unsigned char byte1 = b[i + j];
+                unsigned char byte2 = (i + j + 1 < size) ? b[i + j + 1] : 0;
+                printf("%02x", byte1);
+                printf("%02x", byte2);
+                printf(" ");
+            } else {
+                printf("   ");
+            }
+        }
+
+        printf(" ");
+
+        for (j = 0; j < 10; j++) {
+            if (i + j < size) {
+                unsigned char byte = b[i + j];
+                if (isprint(byte)) {
+                    printf("%c", byte);
+                } else {
+                    printf(".");
+                }
+            } else {
+                break;
+            }
+        }
+
+        printf("\n");
+    }
 }
-
-/**
- * print_buffer - prints a buffer
- * @b: buffer to print
- * @size: size of buffer
- *
- * Return: void
- */
-void print_buffer(char *b, int size)
-{
-	int i;
-
-	for (i = 0; i <= (size - 1) / 10 && size; i++)
-	{
-		printf("%08x: ", i * 10);
-		if (i < size / 10)
-		{
-			print_line(b, 9, i);
-		}
-		else
-		{
-			print_line(b, size % 10 - 1, i);
-		}
-		putchar('\n');
-	}
-	if (size == 0)
-		putchar('\n');
