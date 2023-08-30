@@ -1,19 +1,20 @@
-#include <stdio.h>
+#include "main.h"
+/**
+ * _strlen_recursion - function to print the length of string
+ * @s:string
+ * Description:Write a function that returns the length of a string.
+ * Return:int
+ */
 
+/* Func to calculate the len of a strng using recursion */
 int _strlen_recursion(char *s)
 {
-    // Base case: empty string
-    if (*s == '\0')
-        return 0;
+	int i = 0;/* initialize a counter to keep track of length*/
 
-    // Recursive case: move to the next character and add 1 to the length
-    return 1 + _strlen_recursion(s + 1);
-}
-
-int main(void)
-{
-    char str[] = "Hello, World!";
-    int length = _strlen_recursion(str);
-    printf("Length of the string: %d\n", length);
-    return 0;
+	if (*s)/*checks if the current char is not the null terminator*/
+	{
+		i++;/*increment counter for the current char*/
+		i += _strlen_recursion(s + 1);
+	}
+	return (i);/* Return the total length of the string */
 }
