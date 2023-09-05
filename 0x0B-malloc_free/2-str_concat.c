@@ -21,10 +21,7 @@ char *str_concat(char *s1, char *s2)
 		a++;
 	while (s2[b] != '\0')
 		b++;
-conc
-	
-	
-	mjolkbjvhgbcxt = malloc(sizeof(char) * (a + b + 1));
+	conct = malloc(sizeof(char) * (a + b + 1));
 
 	if (conct == NULL)
 		return (NULL);
