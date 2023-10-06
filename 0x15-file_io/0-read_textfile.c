@@ -1,10 +1,11 @@
-nclude "main.h"
+#include "main.h"
 
 /**
  *read_textfile-function that reads a text file and prints it to the POSIX
  *@filename: file
  *@letters: file
- * Return:z
+ *
+ *Return:z
  */
 
 ssize_t read_textfile(const char *filename, size_t letters)
@@ -14,15 +15,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	x = open(filename, O_RDONLY);
 
-		if (x == -1)
-		{
+	if (x == -1)
+	{
 		return (0);
-			}
-no = malloc(sizeof(char) * letters);
+	}
+	no = malloc(sizeof(char) * letters);
 
-y = read(x, no, letters);
-z = write(STDOUT_FILENO, no, y);
+	y = read(x, no, letters);
+	z = write(STDOUT_FILENO, no, y);
 	free(no);
 	close(x);
-											return (z);
+	return (z);
 }
